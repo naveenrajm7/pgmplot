@@ -2,28 +2,30 @@ from pgmpy.factors.discrete import TabularCPD
 from pgmpy.models import BayesianModel
 import json
 import pickle
-
+import os
 
 def list():
     '''
     Returns all models
     '''
-    filename = './examples/data/model.json'
-    with open(filename, 'r') as f:
-        data = json.load(f)
+    model_list = os.listdir('./examples/models')
 
-    return data
+    for i, x in enumerate(model_list):
+        model_list[i] = x.split('.')[0]
+
+    return json.dumps({'list': model_list})
 
 
 def model_present(model_name):
     '''
     checks a model present or not
     '''
-    filename = './examples/data/model.json'
-    with open(filename, 'r') as f:
-        data = json.load(f)
 
-    model_list = data["list"]
+    model_list = os.listdir('./examples/models')
+
+    for i, x in enumerate(model_list):
+        model_list[i] = x.split('.')[0]
+
     if model_name in model_list:
         return True
     else:

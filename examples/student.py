@@ -50,18 +50,18 @@ data = {    "name"              : "student",
             "nodes"           : {"L":"Letter", "D":"Difficulty", "G":"Grade", "I":"Intelligence", "S":"SAT Scores"}
         }
 
-with open('./data/model.json', 'r+') as f:
-    model_json = json.load(f)
-    model_list = model_json["list"]
-
-    if model_name not in model_list:
-        model_list.append[model_name]
-
-    model_json["list"] = model_list
-
-    f.seek(0)        # <--- should reset file position to the beginning.
-    json.dump(model_json, f, indent=4)
-    f.truncate()
+# with open('./data/model.json', 'r+') as f:
+#     model_json = json.load(f)
+#     model_list = model_json["list"]
+#
+#     if model_name not in model_list:
+#         model_list.append[model_name]
+#
+#     model_json["list"] = model_list
+#
+#     f.seek(0)        # <--- should reset file position to the beginning.
+#     json.dump(model_json, f, indent=4)
+#     f.truncate()
 
 
 with open('./data/student.json', 'w') as outfile:
